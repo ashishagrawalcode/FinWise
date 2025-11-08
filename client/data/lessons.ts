@@ -1,0 +1,688 @@
+export interface QuizQuestion {
+  id: string;
+  question: string;
+  options: string[];
+  correct: number;
+  explanation: string;
+}
+
+export interface Lesson {
+  id: string;
+  title: string;
+  topic: string;
+  duration: number;
+  videoUrl: string;
+  thumbnail: string;
+  summary: string;
+  keyPoints: string[];
+  quiz: QuizQuestion[];
+  xpReward: number;
+  difficulty: "beginner" | "intermediate" | "advanced";
+  preRequisites: string[];
+}
+
+export const LESSONS: Lesson[] = [
+  // Budgeting Topic
+  {
+    id: "lesson_1",
+    title: "Budgeting 101: Why It Matters",
+    topic: "Budgeting",
+    duration: 3,
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnail: "📋",
+    summary:
+      "Learn the fundamentals of budgeting. A budget is a plan for your money - it tells your money where to go instead of wondering where it went.",
+    keyPoints: [
+      "A budget is a spending plan, not a restriction",
+      "Budgets help you achieve financial goals faster",
+      "The 50/30/20 rule: 50% needs, 30% wants, 20% savings",
+      "Tracking is the first step to control",
+    ],
+    difficulty: "beginner",
+    preRequisites: [],
+    xpReward: 50,
+    quiz: [
+      {
+        id: "q1",
+        question: "What is the primary purpose of a budget?",
+        options: [
+          "To restrict your spending",
+          "To tell your money where to go",
+          "To make you feel guilty",
+          "To eliminate all fun",
+        ],
+        correct: 1,
+        explanation: "A budget is a proactive tool that directs your money toward your goals.",
+      },
+      {
+        id: "q2",
+        question: "What does the 50/30/20 rule suggest?",
+        options: [
+          "50% savings, 30% investments, 20% spending",
+          "50% needs, 30% wants, 20% savings",
+          "50% spending, 30% savings, 20% taxes",
+          "50% taxes, 30% needs, 20% everything else",
+        ],
+        correct: 1,
+        explanation:
+          "The 50/30/20 rule is a popular framework: 50% for needs, 30% for wants, and 20% for savings and debt repayment.",
+      },
+      {
+        id: "q3",
+        question: "Which is considered a 'need' in the 50/30/20 rule?",
+        options: ["Netflix subscription", "Eating out at restaurants", "Rent/mortgage", "Concert tickets"],
+        correct: 2,
+        explanation: "Needs are essential expenses like housing, utilities, food, and transportation.",
+      },
+    ],
+  },
+  {
+    id: "lesson_2",
+    title: "The 50/30/20 Rule Explained",
+    topic: "Budgeting",
+    duration: 3,
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnail: "📊",
+    summary:
+      "Deep dive into the 50/30/20 budgeting rule. Learn how to allocate your income for maximum financial health.",
+    keyPoints: [
+      "50% for essential needs (housing, food, utilities, transportation)",
+      "30% for wants (entertainment, dining out, hobbies)",
+      "20% for savings and debt repayment",
+      "Adjust percentages based on your life stage",
+    ],
+    difficulty: "beginner",
+    preRequisites: ["lesson_1"],
+    xpReward: 50,
+    quiz: [
+      {
+        id: "q1",
+        question: "If your monthly income is ₹50,000, how much should go to needs?",
+        options: ["₹10,000", "₹15,000", "₹25,000", "₹30,000"],
+        correct: 2,
+        explanation: "50% of ₹50,000 = ₹25,000 for needs",
+      },
+      {
+        id: "q2",
+        question: "Which should be prioritized: wants or savings?",
+        options: ["Wants - enjoy life now", "Savings - for future security", "Equal priority", "None of the above"],
+        correct: 1,
+        explanation: "Savings builds financial security for your future and should be prioritized over wants.",
+      },
+    ],
+  },
+  {
+    id: "lesson_3",
+    title: "Tracking Expenses Like a Pro",
+    topic: "Budgeting",
+    duration: 3,
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnail: "📱",
+    summary: "Learn the best ways to track expenses using apps, spreadsheets, and techniques.",
+    keyPoints: [
+      "Track every rupee for at least one month",
+      "Use apps like Money View, YNAB, or Excel",
+      "Categorize expenses consistently",
+      "Review weekly, not just monthly",
+      "Identify patterns and leaks",
+    ],
+    difficulty: "beginner",
+    preRequisites: ["lesson_1"],
+    xpReward: 50,
+    quiz: [
+      {
+        id: "q1",
+        question: "How often should you review your expenses?",
+        options: ["Once a year", "Monthly", "Weekly", "Never - just track"],
+        correct: 2,
+        explanation: "Weekly reviews help catch spending patterns and make adjustments early.",
+      },
+    ],
+  },
+  {
+    id: "lesson_4",
+    title: "Creating Your First Budget",
+    topic: "Budgeting",
+    duration: 4,
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnail: "✍️",
+    summary: "Step-by-step guide to creating your first functional budget.",
+    keyPoints: [
+      "List all your income sources",
+      "List all fixed and variable expenses",
+      "Use the 50/30/20 rule as a starting point",
+      "Adjust based on your reality",
+      "Review and refine monthly",
+    ],
+    difficulty: "intermediate",
+    preRequisites: ["lesson_1", "lesson_3"],
+    xpReward: 50,
+    quiz: [
+      {
+        id: "q1",
+        question: "What's the first step in creating a budget?",
+        options: [
+          "Set savings goals",
+          "List all income sources",
+          "Calculate expenses",
+          "Plan investments",
+        ],
+        correct: 1,
+        explanation: "You must know your total income first before allocating it.",
+      },
+    ],
+  },
+  {
+    id: "lesson_5",
+    title: "Emergency Fund Essentials",
+    topic: "Budgeting",
+    duration: 3,
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnail: "🚨",
+    summary: "Why emergency funds are critical and how to build yours.",
+    keyPoints: [
+      "Emergency fund = 6 months of expenses",
+      "Keep in easily accessible accounts (savings account)",
+      "It's insurance, not investment",
+      "Build it before investing heavily",
+      "Rebuild if you use it",
+    ],
+    difficulty: "beginner",
+    preRequisites: ["lesson_1"],
+    xpReward: 50,
+    quiz: [
+      {
+        id: "q1",
+        question: "How much should an emergency fund ideally cover?",
+        options: ["1 month of expenses", "3 months", "6 months", "12 months"],
+        correct: 2,
+        explanation: "6 months gives you enough time to handle job loss or major unexpected expenses.",
+      },
+    ],
+  },
+
+  // Investing Topic
+  {
+    id: "lesson_6",
+    title: "Stock Market Basics",
+    topic: "Investing",
+    duration: 4,
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnail: "📈",
+    summary:
+      "Understand how the stock market works, what stocks are, and the risks/rewards of equity investing.",
+    keyPoints: [
+      "A stock represents ownership in a company",
+      "Stock price changes based on supply and demand",
+      "Long-term returns beat short-term trading",
+      "Diversification reduces risk",
+      "Emotions are a trader's worst enemy",
+    ],
+    difficulty: "beginner",
+    preRequisites: [],
+    xpReward: 50,
+    quiz: [
+      {
+        id: "q1",
+        question: "What does owning a stock mean?",
+        options: [
+          "You own a bond from the company",
+          "You own a piece of the company",
+          "You lent money to the company",
+          "You can control the company",
+        ],
+        correct: 1,
+        explanation: "Shareholders own a proportional piece of the company.",
+      },
+    ],
+  },
+  {
+    id: "lesson_7",
+    title: "Bonds and Fixed Income",
+    topic: "Investing",
+    duration: 3,
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnail: "📜",
+    summary: "Learn about bonds, fixed deposits, and other fixed income investments.",
+    keyPoints: [
+      "Bonds = you lend money to get interest",
+      "Lower risk, lower returns than stocks",
+      "Fixed Deposits (FDs) are safe, taxable",
+      "Government securities (G-Secs) are safest",
+      "Used for capital preservation",
+    ],
+    difficulty: "beginner",
+    preRequisites: [],
+    xpReward: 50,
+    quiz: [
+      {
+        id: "q1",
+        question: "What is a bond?",
+        options: [
+          "You own part of a company",
+          "You lend money and get interest",
+          "A type of mutual fund",
+          "A cryptocurrency",
+        ],
+        correct: 1,
+        explanation: "Bonds represent debt - you're a creditor earning interest.",
+      },
+    ],
+  },
+  {
+    id: "lesson_8",
+    title: "Mutual Funds for Beginners",
+    topic: "Investing",
+    duration: 3,
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnail: "🏦",
+    summary: "Introduction to mutual funds, how they work, and which types suit beginners.",
+    keyPoints: [
+      "Mutual fund = pooled investment managed by a professional",
+      "Equity funds = higher risk, higher returns",
+      "Debt funds = lower risk, lower returns",
+      "Index funds = low cost, market-matching returns",
+      "SIP = systematic investment plan (start small)",
+    ],
+    difficulty: "intermediate",
+    preRequisites: ["lesson_6"],
+    xpReward: 50,
+    quiz: [
+      {
+        id: "q1",
+        question: "What is a mutual fund?",
+        options: [
+          "Money pooled from investors, professionally managed",
+          "A savings account",
+          "A type of loan",
+          "A cryptocurrency",
+        ],
+        correct: 0,
+        explanation: "Mutual funds pool investor money and a professional manager invests it.",
+      },
+    ],
+  },
+  {
+    id: "lesson_9",
+    title: "Diversification: Not Putting Eggs in One Basket",
+    topic: "Investing",
+    duration: 3,
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnail: "🛡️",
+    summary: "Why diversification matters and how to build a diversified portfolio.",
+    keyPoints: [
+      "Diversification reduces risk",
+      "Mix stocks, bonds, real estate",
+      "Within stocks: sectors, market cap, geography",
+      "Rebalance periodically",
+      "Don't time the market - diversify instead",
+    ],
+    difficulty: "intermediate",
+    preRequisites: ["lesson_6", "lesson_7"],
+    xpReward: 50,
+    quiz: [
+      {
+        id: "q1",
+        question: "What is the main benefit of diversification?",
+        options: [
+          "Higher returns guaranteed",
+          "Reduced risk from any single investment failing",
+          "Eliminate all losses",
+          "Guaranteed market beating returns",
+        ],
+        correct: 1,
+        explanation: "Diversification reduces concentration risk - if one investment fails, others cushion the impact.",
+      },
+    ],
+  },
+  {
+    id: "lesson_10",
+    title: "Long-term vs Short-term Investing",
+    topic: "Investing",
+    duration: 3,
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnail: "⏰",
+    summary: "The power of time in investing and why long-term investing beats trading.",
+    keyPoints: [
+      "Time in market > timing the market",
+      "Compound interest is your best friend",
+      "Short-term = high fees, taxes, emotions",
+      "Long-term = wealth building",
+      "Start early, stay consistent",
+    ],
+    difficulty: "intermediate",
+    preRequisites: ["lesson_6"],
+    xpReward: 50,
+    quiz: [
+      {
+        id: "q1",
+        question: "What's the power of compound interest?",
+        options: [
+          "Your interest earns interest over time",
+          "You make more money faster",
+          "You can skip payments",
+          "Interest rates go up automatically",
+        ],
+        correct: 0,
+        explanation: "Compound interest means your earnings generate their own earnings - a snowball effect.",
+      },
+    ],
+  },
+
+  // Credit & Debt Topic
+  {
+    id: "lesson_11",
+    title: "Credit Scores Explained",
+    topic: "Credit & Debt",
+    duration: 3,
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnail: "📊",
+    summary: "Understand CIBIL scores, what affects them, and why they matter.",
+    keyPoints: [
+      "CIBIL range: 300-900",
+      "750+ = good credit",
+      "Payment history = 35% of score",
+      "Credit utilization = 30%",
+      "More inquiries = temporary score drop",
+    ],
+    difficulty: "beginner",
+    preRequisites: [],
+    xpReward: 50,
+    quiz: [
+      {
+        id: "q1",
+        question: "What's a good CIBIL score?",
+        options: ["500", "650", "750", "850"],
+        correct: 2,
+        explanation: "750+ is considered good credit. Above 800 is excellent.",
+      },
+    ],
+  },
+  {
+    id: "lesson_12",
+    title: "Credit Cards: Powerful but Dangerous",
+    topic: "Credit & Debt",
+    duration: 4,
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnail: "💳",
+    summary: "How to use credit cards wisely and avoid common pitfalls.",
+    keyPoints: [
+      "Credit cards = interest-free loan for 30 days",
+      "Pay full bill to avoid 18-45% interest",
+      "Rewards are real if you pay full balance",
+      "Missing payments destroys credit",
+      "Limit to 30% of available credit",
+    ],
+    difficulty: "beginner",
+    preRequisites: ["lesson_11"],
+    xpReward: 50,
+    quiz: [
+      {
+        id: "q1",
+        question: "What's the best way to use a credit card?",
+        options: [
+          "Carry a balance to build credit",
+          "Pay full balance before interest kicks in",
+          "Pay minimum amount always",
+          "Max out the limit",
+        ],
+        correct: 1,
+        explanation:
+          "Paying in full avoids interest charges and builds credit without debt accumulation.",
+      },
+    ],
+  },
+  {
+    id: "lesson_13",
+    title: "Loans: Good Debt vs Bad Debt",
+    topic: "Credit & Debt",
+    duration: 3,
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnail: "🏠",
+    summary: "Understand different types of loans and when to use debt productively.",
+    keyPoints: [
+      "Good debt: home, education, business (builds assets)",
+      "Bad debt: consumer loans for lifestyle",
+      "Interest rates matter - lower is better",
+      "Compare EMI across lenders",
+      "Debt-to-income ratio should stay below 40%",
+    ],
+    difficulty: "intermediate",
+    preRequisites: ["lesson_11"],
+    xpReward: 50,
+    quiz: [
+      {
+        id: "q1",
+        question: "Which is considered 'good debt'?",
+        options: [
+          "Personal loan for a vacation",
+          "Home loan for a house",
+          "Credit card cash advance",
+          "Loan for a car you can't afford",
+        ],
+        correct: 1,
+        explanation: "Good debt builds assets or generates income (home, education). Bad debt is for consumption.",
+      },
+    ],
+  },
+  {
+    id: "lesson_14",
+    title: "Getting Out of Debt",
+    topic: "Credit & Debt",
+    duration: 4,
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnail: "💪",
+    summary: "Strategies to eliminate debt and become financially free.",
+    keyPoints: [
+      "Debt snowball: pay smallest first for momentum",
+      "Debt avalanche: pay highest interest first (smartest)",
+      "Increase income AND decrease expenses",
+      "Don't borrow more to pay debt",
+      "Prevention > cure",
+    ],
+    difficulty: "intermediate",
+    preRequisites: ["lesson_11", "lesson_13"],
+    xpReward: 50,
+    quiz: [
+      {
+        id: "q1",
+        question: "What's the debt avalanche method?",
+        options: [
+          "Pay smallest debts first",
+          "Pay highest interest debts first",
+          "Pay largest balance first",
+          "Pay in order of due dates",
+        ],
+        correct: 1,
+        explanation: "Paying highest interest first minimizes total interest paid and debt duration.",
+      },
+    ],
+  },
+  {
+    id: "lesson_15",
+    title: "Insurance: Your Financial Safety Net",
+    topic: "Credit & Debt",
+    duration: 3,
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnail: "🛡️",
+    summary: "Why insurance matters and which types every adult needs.",
+    keyPoints: [
+      "Insurance = protection against catastrophic loss",
+      "Health insurance = critical",
+      "Life insurance = for dependents",
+      "General insurance = home, car, liability",
+      "Start early for lower premiums",
+    ],
+    difficulty: "beginner",
+    preRequisites: [],
+    xpReward: 50,
+    quiz: [
+      {
+        id: "q1",
+        question: "Why is health insurance important?",
+        options: [
+          "It's optional",
+          "Protects from catastrophic medical costs",
+          "Guarantees good health",
+          "Saves money on doctor visits",
+        ],
+        correct: 1,
+        explanation:
+          "Health insurance protects you from bankruptcy due to medical emergencies.",
+      },
+    ],
+  },
+
+  // Taxes & Planning Topic
+  {
+    id: "lesson_16",
+    title: "Indian Tax System Basics",
+    topic: "Taxes & Planning",
+    duration: 4,
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnail: "📄",
+    summary: "Understand the Indian income tax system and how it affects your earnings.",
+    keyPoints: [
+      "Income tax brackets by income level",
+      "Deductions reduce taxable income",
+      "Tax planning = legal, tax evasion = illegal",
+      "FY vs AY = fiscal year vs assessment year",
+      "Filing returns builds credit history",
+    ],
+    difficulty: "beginner",
+    preRequisites: [],
+    xpReward: 50,
+    quiz: [
+      {
+        id: "q1",
+        question: "What's the difference between tax planning and tax evasion?",
+        options: [
+          "They're the same thing",
+          "Tax planning is legal, evasion is illegal",
+          "Only evasion is allowed",
+          "Planning requires government permission",
+        ],
+        correct: 1,
+        explanation:
+          "Tax planning uses legal deductions and strategies. Evasion is hiding income illegally.",
+      },
+    ],
+  },
+  {
+    id: "lesson_17",
+    title: "Section 80C Deductions Explained",
+    topic: "Taxes & Planning",
+    duration: 3,
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnail: "💰",
+    summary: "Maximize your tax savings using Section 80C deductions like EPF, PPF, ELSS.",
+    keyPoints: [
+      "80C limit = ₹1.5 lakh per year",
+      "EPF, PPF, ELSS, Insurance premiums, principal repayment",
+      "Stacking = maximize all categories",
+      "PPF = 7.5+ year lock-in, tax-free returns",
+      "ELSS = 3 year lock-in, market-linked returns",
+    ],
+    difficulty: "intermediate",
+    preRequisites: ["lesson_16"],
+    xpReward: 50,
+    quiz: [
+      {
+        id: "q1",
+        question: "What's the Section 80C deduction limit?",
+        options: ["₹50,000", "₹75,000", "₹1,00,000", "₹1,50,000"],
+        correct: 3,
+        explanation: "80C limit is ₹1.5 lakh per financial year.",
+      },
+    ],
+  },
+  {
+    id: "lesson_18",
+    title: "Other Tax Deductions (80D, 80E, etc)",
+    topic: "Taxes & Planning",
+    duration: 3,
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnail: "📋",
+    summary: "Leverage deductions beyond 80C for additional tax savings.",
+    keyPoints: [
+      "80D = health insurance premiums (₹25K-₹75K depending on age)",
+      "80E = education loan interest",
+      "80U = disability deduction",
+      "80G = charitable donations",
+      "Home loan interest = additional ��2L deduction",
+    ],
+    difficulty: "intermediate",
+    preRequisites: ["lesson_16"],
+    xpReward: 50,
+    quiz: [
+      {
+        id: "q1",
+        question: "What does 80D cover?",
+        options: ["Education loans", "Health insurance", "Charitable giving", "Home interest"],
+        correct: 1,
+        explanation: "80D provides deduction for health insurance premiums paid.",
+      },
+    ],
+  },
+  {
+    id: "lesson_19",
+    title: "Financial Planning for Life Goals",
+    topic: "Taxes & Planning",
+    duration: 4,
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnail: "🎯",
+    summary: "Create a comprehensive financial plan for major life goals.",
+    keyPoints: [
+      "Goals = quantifiable, time-bound, realistic",
+      "Emergency fund > All other goals",
+      "Insurance > Investment",
+      "Automate savings via SIP/salary deduction",
+      "Review plan annually",
+    ],
+    difficulty: "intermediate",
+    preRequisites: ["lesson_16"],
+    xpReward: 50,
+    quiz: [
+      {
+        id: "q1",
+        question: "What should come before investments?",
+        options: ["Emergency fund", "Stocks", "Real estate", "Cryptocurrency"],
+        correct: 0,
+        explanation: "Emergency fund provides security. Only invest after this is in place.",
+      },
+    ],
+  },
+  {
+    id: "lesson_20",
+    title: "Retirement Planning Essentials",
+    topic: "Taxes & Planning",
+    duration: 4,
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnail: "🏖️",
+    summary: "Plan for a comfortable retirement starting today.",
+    keyPoints: [
+      "Retirement age in India = 60-65",
+      "EPF/NPS = employer + government matched",
+      "Calculate retirement corpus needed",
+      "Inflation reduces purchasing power",
+      "Start as early as possible",
+    ],
+    difficulty: "advanced",
+    preRequisites: ["lesson_16", "lesson_17"],
+    xpReward: 50,
+    quiz: [
+      {
+        id: "q1",
+        question: "Why start retirement planning early?",
+        options: [
+          "It's a legal requirement",
+          "Compound interest gives more time to grow",
+          "Early retirees get bonus",
+          "Only young people can invest",
+        ],
+        correct: 1,
+        explanation: "Time is your biggest asset in investing. Starting early maximizes compound growth.",
+      },
+    ],
+  },
+];
