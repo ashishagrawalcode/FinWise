@@ -1,15 +1,4 @@
-export interface Stock {
-  id: string;
-  symbol: string;
-  name: string;
-  currentPrice: number;
-  basePrice: number;
-  change: number;
-  changePercent: number;
-  volume: number;
-  marketCap: number;
-  pe: number;
-}
+import { Stock } from "@shared/api";
 
 export const MOCK_STOCKS: Stock[] = [
   {
@@ -23,6 +12,9 @@ export const MOCK_STOCKS: Stock[] = [
     volume: 2500000,
     marketCap: 1900000,
     pe: 24.5,
+    sector: "Oil & Gas",
+    yearHigh: 2750,
+    yearLow: 1950,
   },
   {
     id: "tcs",
@@ -35,6 +27,9 @@ export const MOCK_STOCKS: Stock[] = [
     volume: 1800000,
     marketCap: 1450000,
     pe: 28.3,
+    sector: "IT",
+    yearHigh: 3800,
+    yearLow: 3100,
   },
   {
     id: "hdfc",
@@ -47,6 +42,9 @@ export const MOCK_STOCKS: Stock[] = [
     volume: 3500000,
     marketCap: 1200000,
     pe: 22.1,
+    sector: "Banking",
+    yearHigh: 1680,
+    yearLow: 1420,
   },
   {
     id: "infosys",
@@ -59,9 +57,12 @@ export const MOCK_STOCKS: Stock[] = [
     volume: 2200000,
     marketCap: 640000,
     pe: 32.5,
+    sector: "IT",
+    yearHigh: 1550,
+    yearLow: 1180,
   },
   {
-    id: "ipl",
+    id: "wipro",
     symbol: "WIPRO",
     name: "Wipro Limited",
     currentPrice: 385,
@@ -71,9 +72,12 @@ export const MOCK_STOCKS: Stock[] = [
     volume: 4100000,
     marketCap: 168000,
     pe: 18.9,
+    sector: "IT",
+    yearHigh: 450,
+    yearLow: 350,
   },
   {
-    id: "ltm",
+    id: "lt",
     symbol: "LT",
     name: "Larsen & Toubro",
     currentPrice: 2820,
@@ -83,6 +87,9 @@ export const MOCK_STOCKS: Stock[] = [
     volume: 1600000,
     marketCap: 370000,
     pe: 26.7,
+    sector: "Engineering",
+    yearHigh: 2950,
+    yearLow: 2280,
   },
   {
     id: "icici",
@@ -95,6 +102,9 @@ export const MOCK_STOCKS: Stock[] = [
     volume: 5200000,
     marketCap: 380000,
     pe: 19.4,
+    sector: "Banking",
+    yearHigh: 1100,
+    yearLow: 850,
   },
   {
     id: "maruti",
@@ -107,6 +117,9 @@ export const MOCK_STOCKS: Stock[] = [
     volume: 850000,
     marketCap: 210000,
     pe: 8.5,
+    sector: "Automobile",
+    yearHigh: 10200,
+    yearLow: 8500,
   },
   {
     id: "axisbank",
@@ -119,18 +132,9 @@ export const MOCK_STOCKS: Stock[] = [
     volume: 3800000,
     marketCap: 210000,
     pe: 17.2,
-  },
-  {
-    id: "heromotoco",
-    symbol: "HEROMOTOCO",
-    name: "Hero MotoCorp",
-    currentPrice: 3915,
-    basePrice: 3915,
-    change: 0,
-    changePercent: 0,
-    volume: 1100000,
-    marketCap: 95000,
-    pe: 9.3,
+    sector: "Banking",
+    yearHigh: 1150,
+    yearLow: 950,
   },
   {
     id: "bhartiartl",
@@ -143,6 +147,9 @@ export const MOCK_STOCKS: Stock[] = [
     volume: 2900000,
     marketCap: 290000,
     pe: 32.8,
+    sector: "Telecom",
+    yearHigh: 1450,
+    yearLow: 1200,
   },
   {
     id: "sbin",
@@ -155,6 +162,84 @@ export const MOCK_STOCKS: Stock[] = [
     volume: 6500000,
     marketCap: 600000,
     pe: 13.1,
+    sector: "Banking",
+    yearHigh: 750,
+    yearLow: 650,
+  },
+  {
+    id: "maruti",
+    symbol: "MARUTI",
+    name: "Maruti Suzuki",
+    currentPrice: 9250,
+    basePrice: 9250,
+    change: 0,
+    changePercent: 0,
+    volume: 850000,
+    marketCap: 210000,
+    pe: 8.5,
+    sector: "Automobiles",
+    yearHigh: 9850,
+    yearLow: 8200
+  },
+  {
+    id: "axisbank",
+    symbol: "AXISBANK",
+    name: "Axis Bank",
+    currentPrice: 1065,
+    basePrice: 1065,
+    change: 0,
+    changePercent: 0,
+    volume: 3800000,
+    marketCap: 210000,
+    pe: 12.8,
+    sector: "Banking",
+    yearHigh: 1150,
+    yearLow: 850
+  },
+  {
+    id: "heromotoco",
+    symbol: "HEROMOTOCO",
+    name: "Hero MotoCorp",
+    currentPrice: 3915,
+    basePrice: 3915,
+    change: 0,
+    changePercent: 0,
+    volume: 1100000,
+    marketCap: 95000,
+    pe: 15.2,
+    sector: "Automobiles",
+    yearHigh: 4200,
+    yearLow: 2800
+  },
+  {
+    id: "bhartiartl",
+    symbol: "BHARTIARTL",
+    name: "Bharti Airtel",
+    currentPrice: 1385,
+    basePrice: 1385,
+    change: 0,
+    changePercent: 0,
+    volume: 2900000,
+    marketCap: 290000,
+    pe: 18.5,
+    sector: "Telecommunications",
+    yearHigh: 1500,
+    yearLow: 1100
+  },
+  {
+    id: "sbin",
+    symbol: "SBIN",
+    name: "State Bank of India",
+    currentPrice: 730,
+    basePrice: 730,
+    change: 0,
+    changePercent: 0,
+    volume: 6500000,
+    marketCap: 600000,
+    pe: 9.8,
+    sector: "Banking",
+    yearHigh: 800,
+    yearLow: 550
   },
   {
     id: "ntpc",
@@ -166,7 +251,10 @@ export const MOCK_STOCKS: Stock[] = [
     changePercent: 0,
     volume: 12000000,
     marketCap: 340000,
-    pe: 10.7,
+    pe: 11.2,
+    sector: "Power",
+    yearHigh: 325,
+    yearLow: 220
   },
   {
     id: "tatasteel",
@@ -178,7 +266,10 @@ export const MOCK_STOCKS: Stock[] = [
     changePercent: 0,
     volume: 8500000,
     marketCap: 105000,
-    pe: 5.2,
+    pe: 7.5,
+    sector: "Steel",
+    yearHigh: 180,
+    yearLow: 120
   },
   {
     id: "sunpharma",
@@ -190,8 +281,11 @@ export const MOCK_STOCKS: Stock[] = [
     changePercent: 0,
     volume: 2400000,
     marketCap: 215000,
-    pe: 26.4,
-  },
+    pe: 22.5,
+    sector: "Healthcare",
+    yearHigh: 900,
+    yearLow: 700
+  }
 ];
 
 export function simulatePriceChange(stock: Stock): Stock {

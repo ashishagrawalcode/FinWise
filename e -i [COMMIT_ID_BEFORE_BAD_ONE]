@@ -1,0 +1,23 @@
+[33mcommit 5e4d7b06571d915267bc140488b4416a9e830ae9[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: ashishagrawalcode <agrawalashish815@gmail.com>
+Date:   Sun Nov 9 14:48:25 2025 +0530
+
+    FinWise-A Practical Financial Literacy Platform
+
+[33mcommit 6b47eb0ede08b643e437fd4bda764c53ac77cefa[m
+Author: ashishagrawalcode <agrawalashish815@gmail.com>
+Date:   Sun Nov 9 10:07:23 2025 +0530
+
+    Finwise - A practical finance learning platform
+
+[33mcommit 779f6e8507f12649203f3fc04f021852310f00e7[m
+Author: ashishagrawalcode <agrawalashish815@gmail.com>
+Date:   Sat Nov 8 10:46:27 2025 +0530
+
+    Remove .env file and add to gitignore
+
+[33mcommit ac1b8d964e49c38d5e405bbd37f698915bf85780[m
+Author: ashishagrawalcode <agrawalashish815@gmail.com>
+Date:   Sat Nov 8 10:37:16 2025 +0530
+
+    FinWise-A Financial Literacy Platform

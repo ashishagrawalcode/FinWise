@@ -26,9 +26,21 @@ export interface UserProfile {
   joinedDate: string;
   lastActive: string;
   theme: "light" | "dark";
+  completedLessons: string[];
 }
 
 // Financial Hub
+export interface StockHolding {
+  stockId: string;
+  symbol: string;
+  shares: number;
+  avgPrice: number;
+  totalValue: number;
+  totalReturn: number;
+  returnPercent: number;
+  lastUpdated: string;
+}
+
 export interface Account {
   id: string;
   type: "bank" | "credit-card" | "loan" | "investment" | "retirement" | "insurance";
@@ -38,24 +50,73 @@ export interface Account {
   lastUpdated: string;
   holderName?: string; // For accounts that have a named holder
   accountSubType?: "savings" | "current" | "salary"; // Bank-only
+  holdings?: StockHolding[]; // For investment accounts
+  investmentStrategy?: "conservative" | "moderate" | "aggressive"; // For investment accounts
+  returns?: {
+    totalReturn: number;
+    returnPercent: number;
+    lastMonth: number;
+    lastYear: number;
+  }; // For investment accounts
 }
 
 export interface FinancialHub {
   accounts: Account[];
   netWorth: number;
   lastCalculated: string;
+  investments: {
+    totalValue: number;
+    totalReturn: number;
+    returnPercent: number;
+    performanceHistory: {
+      date: string;
+      value: number;
+      return: number;
+    }[];
+  };
+}
+
+// Stocks
+export interface Stock {
+  id: string;
+  symbol: string;
+  name: string;
+  currentPrice: number;
+  basePrice: number;
+  change: number;
+  changePercent: number;
+  volume: number;
+  marketCap: number;
+  pe: number;
+  sector: string;
+  yearHigh: number;
+  yearLow: number;
+  holdings?: {
+    shares: number;
+    avgPrice: number;
+    totalValue: number;
+    totalReturn: number;
+    returnPercent: number;
+  };
 }
 
 // Transactions
 export interface Transaction {
   id: string;
-  type: "income" | "expense";
   amount: number;
   category: string;
+  type: "expense" | "income" | "investment" | "return";
+  method: "cash" | "card" | "upi" | "stock" | "mutual-fund";
+  timestamp: string;
   date: string;
-  note: string;
-  paymentMethod: string;
-  goalId?: string;
+  stockSymbol?: string;
+  shares?: number;
+  pricePerShare?: number;
+  note?: string;
+  paymentMethod?: string;
+  status: "pending" | "completed" | "failed";
+  relatedTransactionId?: string; // For linking related transactions
+  accountId: string; // Reference to the account
 }
 
 // Goals

@@ -22,6 +22,7 @@ import LessonView from "./pages/LessonView";
 import Goals from "./pages/Goals";
 import Leaderboard from "./pages/Leaderboard";
 import NotFound from "./pages/NotFound";
+import Profile from "./pages/Profile";
 
 const queryClient = new QueryClient();
 
@@ -72,6 +73,16 @@ const App = () => {
             {/* Public Routes */}
             <Route path="/" element={<Layout><Home /></Layout>} />
             <Route path="/auth" element={<Auth />} />
+
+            {/* Profile Route */}
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            />
 
             {/* Onboarding Route (after login, before dashboard) */}
             <Route
